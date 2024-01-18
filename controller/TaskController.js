@@ -5,13 +5,16 @@ let type = "";
 
 const getAllTasks = async (req, res) => {
     try {
+        setTimeout(() => {
+            message = "";
+        }, 1000);
         const tasksList = await Task.find();
         return res.render("index", { 
             tasksList, 
             task: null,
             taskDelete: null,
             message,
-            type    
+            type
         });
 
     } catch (err) {
@@ -24,14 +27,14 @@ const createTask = async (req, res) => {
 
     if (!task.task) {
         message = "Insira um texto antes de adicionar a tarefa.";
-        type: "danger";
+        type = "danger";
         return res.redirect("/");
     };
 
     try {
         await Task.create(task);
         message = "Tarefa criada com sucesso!";
-        type: "success";
+        type = "success";
         return res.redirect("/");
     } catch (err) {
         res.status(500).send({ error: err.message });
@@ -58,6 +61,8 @@ const updateOneTask = async (req, res) => {
     try {
         const task = req.body;
         await Task.updateOne({ _id: req.params.id }, task);
+        message = "Tarefa atualizada com sucesso.";
+        type = "success";
         res.redirect("/");
     } catch (err) {
         res.status(500).send({ error: err.message });
@@ -68,6 +73,8 @@ const deleteOneTask = async (req, res) => {
     const id = req.params.id;
     try {
         await Task.deleteOne({ _id: req.params.id });
+        message = "Tarefa deletada com sucesso.";
+        type = "success";
         res.redirect("/");
     } catch (err) {
         res.status(500).send({ error: err.message });

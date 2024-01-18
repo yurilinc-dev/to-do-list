@@ -18,7 +18,7 @@ header {
     padding: 3rem;
     margin: .5rem;
     text-align: center;
-
+    border-radius: 0.5rem 0.5rem 0.1rem 0.1rem;
 }
 
 header h1 {
@@ -107,6 +107,7 @@ a.btnUpdate {
     text-decoration: none;
     color: #ccc;
     transition: all .3s ease-in-out;
+    border-radius: 0.7rem;
 }
 
 a.btnUpdate:hover {
@@ -119,6 +120,7 @@ a.btnDelete {
     text-decoration: none;
     color: #ccc;
     transition: all .3s ease-in-out;
+    border-radius: 0.7rem;
 }
 
 a.btnDelete:hover {
@@ -144,6 +146,7 @@ div#card {
     width: 30rem;
     position: relative;
     background-color: #202024;
+    border-radius: 1rem;
 }
 
 div#head {
@@ -167,7 +170,7 @@ div#card a#close {
 
 div#card a#close:hover{
     background-color: #ff0000;
-    border-radius: 5rem;
+    border-radius: 1rem;
     padding: 0 .3rem;
 }
 
@@ -202,7 +205,7 @@ div#btns a {
 div#btns a#btnNot {
     color: #ff0000;
     border: solid 1px #ff0000;
-    border-radius: 0.7rem;
+    border-radius: 0.2rem;
     margin-right: 1rem;
     transition: all 0.3s ease-in-out;
 }
@@ -214,10 +217,45 @@ div#btns a#btnNot:hover {
 div#btns a#btnYes {
     color: #00aa2a;
     border: solid 1px #00aa2a;
-    border-radius: 0.7rem;
+    border-radius: 0.2rem;
     transition: all 0.3s ease-in-out;
 }
 div#btns a#btnYes:hover {
     background-color: #00aa2a;
     color: #fff;
+}
+
+.message {
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: .5rem .5rem .5rem .5rem;
+}
+
+.message-danger {
+    background-color: rgb(255, 197, 197);
+    color: #8a0000;
+}
+.message-success {
+    background-color: rgb(197, 255, 214);
+    color: #008a1e;
+}
+
+span#close-message {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .3s;
+    padding-left: 2rem;
+}
+span#close-message:hover {
+    color: rgb(255, 0, 0);
 }
